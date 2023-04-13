@@ -33,6 +33,9 @@ h1 {
 
 .TodoForm {
   width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
 }
 
 .todo-input {
@@ -56,6 +59,8 @@ h1 {
   border: none;
   padding: 0.55rem;
   cursor: pointer;
+  flex-grow: 1;
+  height: fit-content;
 }
 
 .Todo {
