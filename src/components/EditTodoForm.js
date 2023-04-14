@@ -1,9 +1,14 @@
 import React, { useState } from "react";
 
-export const EditTodoForm = ({ editTodo, task }) => {
+export const EditTodoForm = ({ editTodo, task, deleteTodo }) => {
   const [value, setValue] = useState(task.task);
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (value.length === 0) {
+      deleteTodo(task.id);
+      return;
+    }
 
     editTodo(value, task.id);
 
@@ -18,7 +23,7 @@ export const EditTodoForm = ({ editTodo, task }) => {
         type="text"
         placeholder="Update task"
         onChange={(e) => setValue(e.target.value)}
-        required={true}
+        // required={true}
       />
       <button className="todo-btn" type="submit">
         Update task
